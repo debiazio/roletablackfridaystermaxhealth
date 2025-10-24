@@ -1,7 +1,7 @@
 {
   "vendor": "stermaxhealth",
   "name": "roleta",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "title": "Roleta de Prêmios 2025",
   "description": "Roleta de Prêmios version 2025",
   "builders": {
