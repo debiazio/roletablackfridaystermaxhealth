@@ -1,0 +1,672 @@
+:root {
+  --rosa-da-rosa: #fc51a7;
+  --rosa-pink-escuro: #e90b91;
+  --pink: #ff3eb5;
+  --violeta: #fc87fc;
+  --mimi-pink: #ffd8f3;
+  --pale-purple: #ffebfb;
+  --preto-raisin: #2f2b2d;
+  --cinza-french: #bcb2ba;
+  --magnolia: #ede7eb;
+  --white: #fffefd;
+  --blush-lavanda: #fff3fd;
+  --sombra: #70809038;
+}
+
+
+/*conteiner principal*/
+.roletaContainer {
+  /* flex: 1; */
+  min-width: 750px;
+  /* min-height: 520px; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: -70px;
+
+}
+
+
+.wheelContainer {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* margin: 40px; */
+  position: relative;
+  width: 550px;
+  height: 580px;
+  /* will-change: transform; */
+  /* top: 25px; */
+  align-content: center;
+  flex-direction: column;
+}
+
+.wheel {
+  position: absolute;
+  width: 430px;
+  /*NÃO ALTERAR */
+  height: 430px;
+  /*NÃO ALTERAR - */
+  border-radius: 50%;
+  transition: transform 3s ease-in-out;
+}
+
+.wheelImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Pointer padrão (sem vibração) */
+.pointer {
+  position: absolute;
+  /* top: 143px; */
+  left: 39%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 100px;
+}
+
+.prizesOverlay {
+  position: absolute;
+  top: -15px;
+  left: 35px;
+  width: 85%;
+  height: 55%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+}
+
+.prizeSegment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 90%;
+  /* Aproxima o texto mais do centro */
+  text-align: center;
+  display: none;
+}
+
+.segmentText {
+  display: none;
+  transform: rotate(158deg);
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin-top: -11px;
+  margin-right: 91px;
+  WIDTH: max-content;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: black;
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ede7eb;
+}
+
+
+@keyframes vibrate {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(-2deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+
+  75% {
+    transform: rotate(-1deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+/* Classe que faz o pointer vibrar */
+.pointerVibrate {
+  animation: vibrate 0.1s infinite;
+  transform-origin: top center;
+  left: 30%;
+}
+
+
+.roletaFormContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  /* Espaçamento entre as colunas */
+}
+
+.formContainer {
+  flex: 1;
+  /* Ocupa a outra metade da largura */
+}
+
+.prize {
+  color: #fff;
+  text-align: center;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rulesText {
+  margin-top: 20px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+.spinButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
+.spinButton {
+  border: none;
+  background-color: #F466BE;
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease-in-out;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: "Rubik";
+  width: 446px;
+}
+
+.spinButton:hover {
+  box-shadow: 0px 0px 30px 15px rgba(233, 11, 145, 0.8);
+}
+
+.spinButton:disabled {
+  cursor: not-allowed;
+}
+
+.pulsatingButton {
+  animation: pulse 1.1s infinite;
+  background-color: #F466BE;
+  /* Cor de fundo do botão */
+  color: #fff;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: row;
+}
+
+.textoPrize {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.botaowhats {
+  display: flex;
+  border-radius: 20px;
+  background-color: #E90B91;
+  padding: 4px;
+}
+
+/* .textoPrizeLink */
+
+.whatsappIcon {
+  width: 34px;
+}
+
+.SacolaIcon {
+  width: 34px;
+  margin-left: 10px;
+}
+
+/* tabela premios */
+.prizeTable {
+  color: #fff;
+  font-size: 12px;
+  bottom: 40px;
+  position: absolute;
+}
+
+/* cabecalho tabela */
+.prizeTable h3 {
+  text-align: center;
+  background-color: var(--rosa-da-rosa);
+  padding: 3px;
+  border-radius: 10px 10px 0px 0px;
+  margin: 0;
+
+}
+
+.prizeTable table {
+  border-collapse: collapse;
+}
+
+.prizeTable td {
+  border: 1px solid #fff;
+  padding: 8px 10px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #E90B91;
+  }
+
+  70% {
+    box-shadow: 0 0 20px 20px rgba(255, 221, 87, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 221, 87, 0);
+  }
+}
+
+.prize p {
+  text-decoration: none;
+}
+
+.prize a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.botaosite {
+  background-color: #E90B91;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* teste */
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* min-width: 700px;
+  min-height: 700px; */
+}
+
+/* Sidebar da direita */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 600px;
+}
+
+.logoImageIdealine {
+  background-color: #fc51a7;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px 55px;
+}
+
+.titleImage {
+  width: 400px;
+  /* margin-top: 40px; */
+  /* margin-bottom: -14px; */
+  top: -10px;
+  position: relative;
+}
+
+
+.conteinerTextos2Layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textoSubtituloSegundaTela {
+  font-family: "Rubik";
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.textoTituloSegundaTela {
+  font-size: 24px;
+  font-family: "Rubik";
+  color: #FFFFFF;
+  font-weight: 900;
+  text-align: center;
+}
+
+.conteinerTextos2LayoutChegou {
+  background-color: #FFFFFF1A;
+  font-size: 32px;
+  font-weight: 900;
+  color: #F466BE;
+  font-family: "Rubik";
+  text-align: center;
+  padding: 10px 20px;
+  width: 446px;
+  margin-bottom: 20px;
+}
+
+.conteinerTextos2LayoutTorcendo {
+  color: #ff489c;
+  font-family: "Rubik";
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.conteinerTextos2LayoutTKS p,
+.conteinerTextos2LayoutChegou p,
+.conteinerTextos2LayoutTorcendo p {
+  margin: 10px;
+}
+
+.conteinerTextos2LayoutImgMera {
+  width: 100%;
+  display: flex;
+  font-size: 10px;
+  bottom: 0;
+  color: #ffffff;
+  font-family: "Rubik";
+  flex-direction: column;
+  align-items: center;
+}
+
+/* LAYOUT 3 */
+.AgoraEhComVC {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0;
+}
+
+.AgoraEhComVC p {
+  margin: 0;
+}
+
+.Seta {
+  width: 10px;
+}
+
+/* .whatsappButton {
+  background-color: #2FB944;
+  padding: 5px;
+  border-radius: 20px 20px;
+  border: 5px solid white
+} */
+
+.List {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.AgoraEhComVC .List li {
+  position: relative;
+  padding-left: 30px;
+  /* Espaço para o ícone da seta */
+  margin-bottom: 10px;
+  /* Espaçamento entre itens */
+}
+
+
+
+.underline {
+  text-decoration: underline;
+}
+
+.couponMessage {
+  color: white;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  right: 100px;
+}
+
+.couponMessage p {
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 1px #ffffff, 0 0 5px #ffffff;
+  font-family: "Rubik";
+  font-size: 12px;
+}
+
+.couponMessage strong {
+  color: var(--rosa-da-rosa);
+  text-shadow: none;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+
+  margin-left: -20px;
+  margin-right: -20px;
+  gap: 10px;
+}
+
+.whatsappButton,
+.siteButton {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: var(--rosa-da-rosa);
+  font-size: 10px;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: 'Rubik';
+  box-shadow: 0 0 30px rgba(233, 11, 145, 0.8);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.whatsConsultoras {
+  width: 25px;
+}
+
+.iconeSacola {
+  width: 45px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .buttonContainer {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .whatsappButton,
+  .siteButton {
+    padding: 0 2px 0px 2px;
+    padding: 0px;
+    border-radius: 10px;
+    background-color: var(--rosa-da-rosa);
+    font-size: 8px;
+  }
+
+  .couponMessage {
+    bottom: -114px;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 600px;
+    margin-top: 5%;
+  }
+
+  .logoImageIdealine {
+    background-color: #fc51a7;
+    width: 160px;
+    position: absolute;
+    top: 0;
+    border-radius: 0px 0px 10px 10px;
+    padding: 0px 35px;
+  }
+
+
+  .conteinerTextos2LayoutImgMera {
+    width: 100%;
+    display: flex;
+    font-size: 12px;
+    bottom: -458px;
+    position: relative;
+    color: #ffffff;
+    text-shadow: 0 0 1px #ffffff, 0 0 5px #ffffff;
+    font-family: "Rubik";
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .conteinerTextos2LayoutTorcendo {
+    color: #ff489c;
+    font-family: "Rubik";
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  .conteinerTextos2LayoutChegou {
+    font-size: 22px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .conteinerTextos2Layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    text-align: center;
+  }
+
+  .titleImage {
+    width: 280px;
+    margin-top: 38px;
+    margin-bottom: 15px;
+  }
+
+  .prizeTable {
+    bottom: 140px;
+    position: relative;
+  }
+
+  .container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .wheel {
+    width: 280px;
+    height: 280px;
+  }
+
+  .wheelContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    will-change: transform;
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .AgoraEhComVC .List li::before {
+    display: none;
+  }
+
+  .AgoraEhComVC {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .pointer {
+    width: 30px;
+  }
+
+  .segmentText {
+    font-size: 14px;
+    margin-top: -65px;
+  }
+
+  .prizesOverlay {
+    top: 12px;
+    left: 31px;
+    width: 80%;
+    height: 50%;
+  }
+
+  .prize {
+    width: 60%;
+  }
+
+}
