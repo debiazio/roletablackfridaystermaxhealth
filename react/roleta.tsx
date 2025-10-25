@@ -360,7 +360,7 @@ const Roleta = () => {
         {showSidebar && (
           <div className={styles.sidebar}>
             <img
-              src="https://stermax.com.br/images_idealine/roleta/black-idealovers.webp"
+              src="https://stermax.com.br/images_idealine/roleta-stermax/imagem-titulo-stermax.webp"
               alt="Título Roleta Prêmios"
               className={styles.titleImage}
             />
@@ -467,13 +467,13 @@ const Roleta = () => {
         {/* Div da roleta */}
         <div className={styles.wheelContainer}>
           <img
-            src="https://stermax.com.br/images_idealine/roleta/pointer.webp"
+            src="https://stermax.com.br/images_idealine/roleta-stermax/pointer-stermax.webp"
             alt="Ponteiro"
             className={`${styles.pointer} ${spinning ? styles.pointerVibrate : ''}`}
           />
           <div className={styles.wheel} style={{ transform: `rotate(${rotation}deg)` }}>
             <img
-              src="https://stermax.com.br/images_idealine/roleta/roleta-idealine.webp"
+              src="https://stermax.com.br/images_idealine/roleta-stermax/roleta-stermax.webp"
               alt="Imagem da roleta"
               className={styles.wheelImage}
             />
