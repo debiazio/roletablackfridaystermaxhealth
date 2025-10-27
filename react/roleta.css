@@ -1,5 +1,5 @@
 :root {
-  --fonte-fraunces:'Fraunces', serif;
+  --fonte-fraunces: 'Fraunces', serif;
   --fonte-jost: 'Jost', sans-serif;
   --fonte-montserrat: 'Montserrat', sans-serif;
   --preto-raisin: #2f2b2d;
@@ -574,8 +574,8 @@
   }
 
   .conteinerTextos2LayoutChegou {
-    font-size: 22px;
-    width: 95%;
+    font-size: 12px;
+    width: 70vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -658,5 +658,39 @@
   .prize {
     width: 60%;
   }
+
+  .textoTituloSegundaTela {
+    font-size: 18px;
+    color: #FFFFFF !important;
+  }
+
+  .textoSubtituloSegundaTela {
+    color: #FFFFFF !important;
+  }
+
+  .spinButton {
+    padding: 10px 40px;
+    width: unset;
+  }
+
+  .roletaContainer {
+  /* flex: 1; */
+  min-height: 520px;
+  /* justify-content: center; */
+
+}
+
+.pointer {
+  position: absolute;
+  /* top: 143px; */
+  left: unset;
+  transform: unset;
+  z-index: 1;
+  width: 60px;
+}
+
+.couponMessage {
+  right: unset;
+}
 
 }
