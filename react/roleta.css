@@ -1,10 +1,7 @@
 :root {
-  --rosa-da-rosa: #fc51a7;
-  --rosa-pink-escuro: #e90b91;
-  --pink: #ff3eb5;
-  --violeta: #fc87fc;
-  --mimi-pink: #ffd8f3;
-  --pale-purple: #ffebfb;
+  --fonte-fraunces:'Fraunces', serif;
+  --fonte-jost: 'Jost', sans-serif;
+  --fonte-montserrat: 'Montserrat', sans-serif;
   --preto-raisin: #2f2b2d;
   --cinza-french: #bcb2ba;
   --magnolia: #ede7eb;
@@ -12,6 +9,12 @@
   --blush-lavanda: #fff3fd;
   --sombra: #70809038;
 }
+
+/* fontes  */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 
 
 /*conteiner principal*/
@@ -161,7 +164,7 @@
 /* Classe que faz o pointer vibrar */
 .pointerVibrate {
   animation: vibrate 0.1s infinite;
-  transform-origin: top center;
+  transform-origin: 60% 95%;
   left: 30%;
 }
 
@@ -201,7 +204,7 @@
 
 .spinButton {
   border: none;
-  background-color: #F466BE;
+  background-color: #2585C2;
   color: white;
   font-size: 16px;
   font-weight: 900;
@@ -210,12 +213,12 @@
   transition: box-shadow 0.3s ease-in-out;
   text-transform: uppercase;
   padding: 10px;
-  font-family: "Rubik";
+  font-family: 'Jost', sans-serif;
   width: 446px;
 }
 
 .spinButton:hover {
-  box-shadow: 0px 0px 30px 15px rgba(233, 11, 145, 0.8);
+  box-shadow: 0px 0px 30px 15px rgba(37, 133, 194, 0.8);
 }
 
 .spinButton:disabled {
@@ -224,7 +227,7 @@
 
 .pulsatingButton {
   animation: pulse 1.1s infinite;
-  background-color: #F466BE;
+  background-color: #2585C2;
   /* Cor de fundo do botão */
   color: #fff;
 }
@@ -245,7 +248,7 @@
 .botaowhats {
   display: flex;
   border-radius: 20px;
-  background-color: #E90B91;
+  background-color: #2585C2;
   padding: 4px;
 }
 
@@ -271,7 +274,7 @@
 /* cabecalho tabela */
 .prizeTable h3 {
   text-align: center;
-  background-color: var(--rosa-da-rosa);
+  background-color: #2585C2;
   padding: 3px;
   border-radius: 10px 10px 0px 0px;
   margin: 0;
@@ -289,7 +292,7 @@
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 #E90B91;
+    box-shadow: 0 0 0 0 #2585C2;
   }
 
   70% {
@@ -316,7 +319,7 @@
 }
 
 .botaosite {
-  background-color: #E90B91;
+  background-color: #2585C2;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -345,18 +348,11 @@
   min-width: 600px;
 }
 
-.logoImageIdealine {
-  background-color: #fc51a7;
-  width: 300px;
-  position: absolute;
-  top: 0;
-  border-radius: 0px 0px 10px 10px;
-  padding: 10px 55px;
-}
+
 
 .titleImage {
   width: 400px;
-  /* margin-top: 40px; */
+  margin-top: 40px;
   /* margin-bottom: -14px; */
   top: -10px;
   position: relative;
@@ -370,36 +366,35 @@
 }
 
 .textoSubtituloSegundaTela {
-  font-family: "Rubik";
+  font-family: 'Jost', sans-serif;
   color: #FFFFFF;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 500;
   text-align: center;
 }
 
 .textoTituloSegundaTela {
   font-size: 24px;
-  font-family: "Rubik";
+  font-family: 'Fraunces', serif;
   color: #FFFFFF;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
 }
 
 .conteinerTextos2LayoutChegou {
   background-color: #FFFFFF1A;
   font-size: 32px;
-  font-weight: 900;
-  color: #F466BE;
-  font-family: "Rubik";
+  font-weight: 700;
+  color: #2585C2;
+  font-family: 'Fraunces', serif;
   text-align: center;
   padding: 10px 20px;
   width: 446px;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .conteinerTextos2LayoutTorcendo {
-  color: #ff489c;
-  font-family: "Rubik";
   font-size: 25px;
   font-weight: 900;
 }
@@ -408,17 +403,19 @@
 .conteinerTextos2LayoutChegou p,
 .conteinerTextos2LayoutTorcendo p {
   margin: 10px;
+  color: #2585C2;
 }
 
 .conteinerTextos2LayoutImgMera {
   width: 100%;
   display: flex;
-  font-size: 10px;
+  font-size: 12px;
   bottom: 0;
   color: #ffffff;
-  font-family: "Rubik";
+  font-family: 'Jost', sans-serif;
   flex-direction: column;
   align-items: center;
+  padding-top: 25px;
 }
 
 /* LAYOUT 3 */
@@ -448,6 +445,9 @@
 .List {
   font-size: 12px;
   color: #ffffff;
+  text-align: start;
+  font-family: var(--fonte-montserrat);
+
 }
 
 .AgoraEhComVC .List li {
@@ -474,21 +474,18 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  right: 100px;
+  right: 117px;
 }
 
 .couponMessage p {
   margin: 0;
   color: #ffffff;
-  text-shadow: 0 0 1px #ffffff, 0 0 5px #ffffff;
-  font-family: "Rubik";
+  font-family: var(--fonte-jost);
   font-size: 12px;
+  font-weight: 400;
 }
 
-.couponMessage strong {
-  color: var(--rosa-da-rosa);
-  text-shadow: none;
-}
+
 
 .buttonContainer {
   display: flex;
@@ -502,14 +499,14 @@
 .whatsappButton,
 .siteButton {
   padding: 5px;
-  border-radius: 10px;
-  background-color: var(--rosa-da-rosa);
+  border-radius: 100px;
+  background-color: #2585C2;
   font-size: 10px;
   border: none;
   color: #ffffff;
-  font-weight: bold;
-  font-family: 'Rubik';
-  box-shadow: 0 0 30px rgba(233, 11, 145, 0.8);
+  font-weight: 500;
+  font-family: var(--fonte-montserrat);
+  box-shadow: 0 0 30px #2585C2;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -521,7 +518,8 @@
 }
 
 .iconeSacola {
-  width: 45px;
+  width: 25px;
+  padding: 5px;
 }
 
 
@@ -537,7 +535,6 @@
     padding: 0 2px 0px 2px;
     padding: 0px;
     border-radius: 10px;
-    background-color: var(--rosa-da-rosa);
     font-size: 8px;
   }
 
@@ -553,14 +550,7 @@
     margin-top: 5%;
   }
 
-  .logoImageIdealine {
-    background-color: #fc51a7;
-    width: 160px;
-    position: absolute;
-    top: 0;
-    border-radius: 0px 0px 10px 10px;
-    padding: 0px 35px;
-  }
+
 
 
   .conteinerTextos2LayoutImgMera {
@@ -577,7 +567,7 @@
   }
 
   .conteinerTextos2LayoutTorcendo {
-    color: #ff489c;
+    color: #2585C2;
     font-family: "Rubik";
     font-size: 22px;
     font-weight: 900;

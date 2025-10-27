@@ -384,13 +384,13 @@ const Roleta = () => {
                     ? selectedPrize && selectedPrize.code
                       ? (
                         <>
-                          <span style={{ color: '#FC51A7', fontSize: '22px', textShadow: 'none' }}>
+                          <span style={{ color: '#2585C2', fontSize: '22px', textShadow: 'none' }}>
                             Copie o seu cupom:<br /> {/* Quebra de linha aqui */}
                             &nbsp; {/* Texto adicional com espaço não quebrável */}
                           </span>
                           <span
                             onClick={() => copyToClipboard(selectedPrize.code.toUpperCase())}
-                            style={{ cursor: 'pointer', color: '#FC51A7', textShadow: 'none', fontSize: '22px' }} // Estilo para indicar que é clicável
+                            style={{ cursor: 'pointer', color: '#2585C2', textShadow: 'none', fontSize: '22px',fontFamily: 'Fraunces, sans-serif' }} // Estilo para indicar que é clicável
                           >
                             {selectedPrize.code.toUpperCase()} {/* Exibe o código do cupom */}
                             <ul className={styles.List}>
@@ -422,10 +422,17 @@ const Roleta = () => {
                 {/* Botões de Compra */}
                 <div className={styles.buttonContainer}>
                   <button
+                    onClick={() => window.open('https://www.stermaxhomeandhealth.com.br', '_blank')}
+                    className={styles.siteButton}
+                  >
+                    COMPRAR PELO SITE E GARANTIR O MEU PRÊMIO
+                    <img src="https://stermax.com.br/images_idealine/roleta-stermax/icone-sacola-stxh.webp" alt="Ícone compra no site" className={styles.iconeSacola} />
+                  </button>
+                  <button
                     onClick={() => {
                       if (selectedPrize) {
                         window.open(
-                          `https://wa.me/5541998516332?text=Olá, ganhei o cupom com o prêmio ${selectedPrize.code.toUpperCase()} na roleta, quero efetuar a compra e garantir meu prêmio`,
+                          `https://wa.me/5541999710062?text=Olá, ganhei o cupom com o prêmio ${selectedPrize.code.toUpperCase()} na roleta, quero efetuar a compra e garantir meu prêmio`,
                           '_blank'
                         );
                       }
@@ -434,14 +441,6 @@ const Roleta = () => {
                   >
                     COMPRAR COM CONSULTORA E GARANTIR O MEU PRÊMIO
                     <img src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/033385b4-ec2e-4b80-b824-91b5d979c897___54e571574de08cf410c2541050bd7141.svg" alt="Ícone whatsapp" className={styles.whatsConsultoras} />
-                  </button>
-
-                  <button
-                    onClick={() => window.open('https://www.idealine.com.br', '_blank')}
-                    className={styles.siteButton}
-                  >
-                    COMPRAR PELO SITE E GARANTIR O MEU PRÊMIO
-                    <img src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/50116347-19fb-4975-8f9a-04c257b26cc2___dd491c62ea310a7cd1e7499cd430814e.svg" alt="Ícone compra no site" className={styles.iconeSacola} />
                   </button>
                 </div>
               </div>
