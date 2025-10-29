@@ -41,266 +41,216 @@ const Roleta = () => {
 
   // Lista de prêmios fixos
   const prizes = [
-    { code: 'blackenvelopeg', title: 'Env. G' },
-    { code: 'black50reais', title: 'R$50' },
-    { code: 'blackpinkbox', title: 'BOX' },
-    { code: 'blackesmalteira', title: 'P. Esmaltes' },
-    { code: 'blackenvelopep', title: 'Env. P' },
-    { code: 'blackfrete', title: 'Frete' },
+    { code: 'BLACKENVELOPEG', title: 'Env. G' },
+    { code: 'BLACKSELADORA', title: 'Seladora' },
+    { code: 'BLACKFRETEOFF50', title: 'Desc. frete R$50' },
+    { code: 'BLACKNECESSAIRE', title: 'Necessaire' },
+    { code: 'BLACKDESC50', title: 'Desconto R$50' },
   ];
 
   // Regras de prêmios por data
-  const prizeRules: Record<string, { range: number[]; code: string }[]> = {
-    // hoje para testes
-    '2024-11-03': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 64], code: 'blackenvelopeg' },
-      { range: [65, 70], code: 'blackpinkbox' },
-      { range: [71, 73], code: 'blackesmalteira' },
-      { range: [74, 75], code: 'black50reais' },
-      { range: [76, 77], code: 'blackfrete' },
-    ],
-    '2024-11-04': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 64], code: 'blackenvelopeg' },
-      { range: [65, 70], code: 'blackpinkbox' },
-      { range: [71, 73], code: 'blackesmalteira' },
-      { range: [74, 75], code: 'black50reais' },
-      { range: [76, 77], code: 'blackfrete' },
-    ],
-    '2024-11-05': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 69], code: 'blackpinkbox' },
-      { range: [70, 72], code: 'blackesmalteira' },
-      { range: [73, 76], code: 'black50reais' },
-      { range: [77, 81], code: 'blackfrete' },
-    ],
-    '2024-11-06': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 69], code: 'blackpinkbox' },
-      { range: [70, 75], code: 'blackesmalteira' },
-      { range: [76, 80], code: 'black50reais' },
-      { range: [81, 82], code: 'blackfrete' },
-    ],
-    '2024-11-07': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 69], code: 'blackpinkbox' },
-      { range: [70, 72], code: 'blackesmalteira' },
-      { range: [73, 74], code: 'black50reais' },
-      { range: [75, 76], code: 'blackfrete' },
-    ],
-    '2024-11-08': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 69], code: 'blackpinkbox' },
-      { range: [70, 75], code: 'blackesmalteira' },
-      { range: [76, 78], code: 'black50reais' },
-      { range: [79, 80], code: 'blackfrete' },
-    ],
-    '2024-11-09': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 69], code: 'blackpinkbox' },
-      { range: [70, 74], code: 'blackesmalteira' },
-      { range: [75, 77], code: 'black50reais' },
-      { range: [78, 79], code: 'blackfrete' },
-    ],
-    '2024-11-10': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 71], code: 'blackpinkbox' },
-      { range: [72, 80], code: 'blackesmalteira' },
-      { range: [81, 85], code: 'black50reais' },
-      { range: [86, 90], code: 'blackfrete' },
-    ],
-    '2024-11-11': [
-      { range: [1, 60], code: 'blackenvelopep' },
-      { range: [61, 63], code: 'blackenvelopeg' },
-      { range: [64, 71], code: 'blackpinkbox' },
-      { range: [72, 77], code: 'blackesmalteira' },
-      { range: [78, 82], code: 'black50reais' },
-      { range: [83, 84], code: 'blackfrete' },
-    ],
-    '2024-11-12': [
-      { range: [1, 30], code: 'blackenvelopep' },
-      { range: [31, 33], code: 'blackenvelopeg' },
-      { range: [34, 41], code: 'blackpinkbox' },
-      { range: [42, 47], code: 'blackesmalteira' },
-      { range: [48, 52], code: 'black50reais' },
-      { range: [53, 54], code: 'blackfrete' },
-    ],
-    '2024-11-13': [
-      { range: [1, 30], code: 'blackenvelopep' },
-      { range: [31, 33], code: 'blackenvelopeg' },
-      { range: [34, 41], code: 'blackpinkbox' },
-      { range: [42, 47], code: 'blackesmalteira' },
-      { range: [48, 52], code: 'black50reais' },
-      { range: [53, 57], code: 'blackfrete' },
-    ],
-    '2024-11-14': [
-      { range: [1, 30], code: 'blackenvelopep' },
-      { range: [31, 33], code: 'blackenvelopeg' },
-      { range: [34, 41], code: 'blackpinkbox' },
-      { range: [42, 47], code: 'blackesmalteira' },
-      { range: [48, 52], code: 'black50reais' },
-      { range: [53, 55], code: 'blackfrete' },
-    ],
-    '2024-11-15': [
-      { range: [1, 80], code: 'blackenvelopep' },
-      { range: [81, 83], code: 'blackenvelopeg' },
-      { range: [84, 91], code: 'blackpinkbox' },
-      { range: [92, 97], code: 'blackesmalteira' },
-      { range: [98, 102], code: 'black50reais' },
-      { range: [103, 104], code: 'blackfrete' },
-    ],
-    '2024-11-16': [
-      { range: [1, 30], code: 'blackenvelopep' },
-      { range: [31, 33], code: 'blackenvelopeg' },
-      { range: [34, 39], code: 'blackpinkbox' },
-      { range: [40, 45], code: 'blackesmalteira' },
-      { range: [46, 50], code: 'black50reais' },
-      { range: [51], code: 'blackfrete' },
-    ],
-    '2024-11-17': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 25], code: 'blackesmalteira' },
-      { range: [26, 30], code: 'black50reais' },
-      { range: [31, 35], code: 'blackfrete' },
-    ],
-    '2024-11-18': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 25], code: 'blackesmalteira' },
-      { range: [26, 30], code: 'black50reais' },
-      { range: [31, 35], code: 'blackfrete' },
-    ],
-    '2024-11-19': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 27], code: 'blackesmalteira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 34], code: 'blackfrete' },
-    ],
-    '2024-11-20': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 27], code: 'blackesmalteira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 37], code: 'blackfrete' },
-    ],
-    '2024-11-21': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 27], code: 'blackesmalteira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 34], code: 'blackfrete' },
-    ],
-    '2024-11-22': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 27], code: 'blackesmalte ira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 37], code: 'blackfrete' },
-    ],
-    '2024-11-23': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 27], code: 'blackesmalteira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 35], code: 'blackfrete' },
-    ],
-    '2024-11-24': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 19], code: 'blackpinkbox' },
-      { range: [20, 27], code: 'blackesmalteira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 37], code: 'blackfrete' },
-    ],
-    '2024-11-25': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 21], code: 'blackpinkbox' },
-      { range: [22, 31], code: 'blackesmalteira' },
-      { range: [32, 37], code: 'black50reais' },
-      { range: [38, 42], code: 'blackfrete' },
-    ],
-    '2024-11-26': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 21], code: 'blackpinkbox' },
-      { range: [22, 31], code: 'blackesmalteira' },
-      { range: [32, 41], code: 'black50reais' },
-      { range: [42, 46], code: 'blackfrete' },
-    ],
-    '2024-11-27': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 21], code: 'blackpinkbox' },
-      { range: [22, 31], code: 'blackesmalteira' },
-      { range: [32, 41], code: 'black50reais' },
-      { range: [42, 47], code: 'blackfrete' },
-    ],
-    '2024-11-28': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 21], code: 'blackpinkbox' },
-      { range: [22, 31], code: 'blackesmalteira' },
-      { range: [32, 41], code: 'black50reais' },
-      { range: [42, 46], code: 'blackfrete' },
-    ],
-    '2024-11-29': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 21], code: 'blackpinkbox' },
-      { range: [22, 31], code: 'blackesmalteira' },
-      { range: [32, 39], code: 'black50reais' },
-      { range: [40, 42], code: 'blackfrete' },
-    ],
-    '2024-11-30': [
-      { range: [1, 10], code: 'blackenvelopep' },
-      { range: [11, 13], code: 'blackenvelopeg' },
-      { range: [14, 17], code: 'blackpinkbox' },
-      { range: [18, 27], code: 'blackesmalteira' },
-      { range: [28, 32], code: 'black50reais' },
-      { range: [33, 37], code: 'blackfrete' },
-    ],
-  };
-
-  // const currentDate = new Date().toISOString().slice(0, 10);
-  const currentDate = '2024-11-03'; // força uma data que existe nas regras
+const prizeRules: Record<string, { range: number[]; code: string }[]> = {
+  '2025-11-10': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 45], code: 'BLACKFRETEOFF50' },
+    { range: [46, 47], code: 'BLACKNECESSAIRE' },
+    { range: [48, 49], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-11': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 45], code: 'BLACKFRETEOFF50' },
+    { range: [46, 47], code: 'BLACKNECESSAIRE' },
+    { range: [48, 51], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-12': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 44], code: 'BLACKFRETEOFF50' },
+    { range: [45, 46], code: 'BLACKNECESSAIRE' },
+    { range: [47, 50], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-13': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 43], code: 'BLACKFRETEOFF50' },
+    { range: [44, 44], code: 'BLACKNECESSAIRE' },
+    { range: [45, 46], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-14': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 45], code: 'BLACKFRETEOFF50' },
+    { range: [46, 48], code: 'BLACKNECESSAIRE' },
+    { range: [49, 50], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-15': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 44], code: 'BLACKFRETEOFF50' },
+    { range: [45, 47], code: 'BLACKNECESSAIRE' },
+    { range: [48, 52], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-16': [
+    { range: [1, 40], code: 'BLACKENVELOPEG' },
+    { range: [41, 45], code: 'BLACKFRETEOFF50' },
+    { range: [46, 48], code: 'BLACKNECESSAIRE' },
+    { range: [49, 52], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-17': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 28], code: 'BLACKNECESSAIRE' },
+    { range: [29, 32], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-18': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 28], code: 'BLACKNECESSAIRE' },
+    { range: [29, 30], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-19': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 28], code: 'BLACKNECESSAIRE' },
+    { range: [29, 30], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-20': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 28], code: 'BLACKNECESSAIRE' },
+    { range: [29, 30], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-21': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 33], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-22': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 36], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-23': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 33], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-24': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 34], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-25': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 33], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-26': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 38], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-27': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 36], code: 'BLACKDESC50' },
+    { range: [37, 37], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-28': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 36], code: 'BLACKDESC50' },
+    { range: [37, 37], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-29': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 36], code: 'BLACKDESC50' },
+    { range: [37, 37], code: 'BLACKSELADORA' },
+  ],
+  '2025-11-30': [
+    { range: [1, 20], code: 'BLACKENVELOPEG' },
+    { range: [21, 25], code: 'BLACKFRETEOFF50' },
+    { range: [26, 31], code: 'BLACKNECESSAIRE' },
+    { range: [32, 35], code: 'BLACKDESC50' },
+    { range: [0], code: 'BLACKSELADORA' },
+  ],
+};
 
 
+    // Pega a data atual no formato YYYY-MM-DD (ajustada para o fuso horário local)
+  const currentDate = new Date().toLocaleDateString('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+  })
+    .split('/')
+    .reverse()
+    .map((part, i) => (i === 1 ? part.padStart(2, '0') : part)) // garante zero à esquerda no mês
+    .join('-');
+
+  //  const currentDate = '2025-11-30'; // força uma data que existe nas regras
+
+  // Função que retorna o código do prêmio com base na data e número aleatório
   const getPrizeCode = (randomNumber: number): string => {
     const rules = prizeRules[currentDate as keyof typeof prizeRules];
-    if (!rules) return '';
 
+    // Caso a data não esteja nas regras → probabilidade igual para todos
+    if (!rules) {
+      const equalChanceIndex = Math.floor(Math.random() * prizes.length);
+      const randomPrize = prizes[equalChanceIndex].code;
+      console.log(`${currentDate} - range (igual) - ${randomPrize}`);
+      return randomPrize;
+    }
+
+    // Verifica dentro do range configurado
     for (const rule of rules) {
       if (randomNumber >= rule.range[0] && randomNumber <= rule.range[1]) {
-        return rule.code; // Apenas retorna o código da regra
+        console.log(`${currentDate}  - número ${randomNumber} - range ${rule.range[0]},${rule.range[1]} - ${rule.code}`);
+        return rule.code;
       }
     }
 
+    // Caso não caia em nenhum range (falha de configuração)
+    console.warn(`${currentDate} - número ${randomNumber} fora de todos os ranges`);
     return '';
   };
 
+// Função principal da roleta
   const handleSpin = (): void => {
     if (!spinning && !hasSpun && prizes.length > 0) {
       setSpinning(true);
       setHasSpun(true);
 
-      const randomNumber = Math.floor(Math.random() * 78) + 1;
+            // Obtém o conjunto de regras do dia atual
+      const rules = prizeRules[currentDate as keyof typeof prizeRules];
+
+      // Calcula o valor máximo do range desse dia (ex: 35 no dia 30/11)
+      const maxRange = rules ? Math.max(...rules.map((r) => r.range[1] || 0)) : prizes.length;
+
+      // Sorteia o número dentro do range correto
+      const randomNumber = Math.floor(Math.random() * maxRange) + 1;
+
       const prizeCode = getPrizeCode(randomNumber);
 
       // Ângulo do segmento de cada prêmio
@@ -325,35 +275,13 @@ const Roleta = () => {
 
 
 
-
   return (
     <div className={styles.roletaContainer} style={{ display: showRoletaContainer ? 'block' : 'none' }}>
       <div className={`${styles.formularioRoleta} ${showSpinButton ? styles.oculto : ''}`}>
         {/* Conteúdo do formulário */}
       </div>
 
-      {/* Tabela de Prêmios */}
-      {!showSpinButton && (
-        <div className={styles.prizeTable}>
-          <h3>PRÊMIOS</h3>
-          <table>
-            <tbody>
-              <tr>
-                <td>FRETE GRÁTIS</td>
-                <td>ENVELOPE 9x 23 CM</td>
-              </tr>
-              <tr>
-                <td>ENVELOPE 5X13 CM</td>
-                <td>PORTA ESMALTES</td>
-              </tr>
-              <tr>
-                <td>BOX MAD.U</td>
-                <td>VALE DESCONTO DE R$50</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      )}
+
 
       <div className={styles.container}>
         {/* Div lateral */}
@@ -403,7 +331,7 @@ const Roleta = () => {
                           </span>
                         </>
                       )
-                      : "CUPOM INVÁLIDO" // ou uma mensagem apropriada
+                      : "GIRE NOVAMENTE" // ou uma mensagem apropriada
                     : "CHEGOU A HORA DE TESTAR A SUA SORTE"}
                 </p>
               </div>
