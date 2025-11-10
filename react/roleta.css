@@ -531,14 +531,14 @@
     flex-direction: column;
   }
 
-  .whatsappButton{
-    padding: 5px;
+  .whatsappButton {
+    padding: 6px 10px;
   }
 
-  .whatsappButton,
+
   .siteButton {
     padding: 0 2px 0px 2px;
-    padding: 0px;
+    
     border-radius: 10px;
     font-size: 8px;
   }
@@ -679,23 +679,39 @@
   }
 
   .roletaContainer {
-  /* flex: 1; */
-  min-height: 520px;
-  /* justify-content: center; */
+    /* flex: 1; */
+    min-height: 520px;
+    /* justify-content: center; */
+
+  }
+
+  .pointer {
+    position: absolute;
+    /* top: 143px; */
+    left: unset;
+    transform: unset;
+    z-index: 1;
+    width: 60px;
+  }
+
+  .couponMessage {
+    right: unset;
+  }
 
 }
 
-.pointer {
-  position: absolute;
-  /* top: 143px; */
-  left: unset;
-  transform: unset;
-  z-index: 1;
-  width: 60px;
-}
+@media screen and (max-width: 350px) {
+  .titleImage {
+    width: 220px;
+  }
 
-.couponMessage {
-  right: unset;
-}
+  .couponMessage {
+    width: 80%;
+  }
+
+  .wheel {
+    width: 220px;
+    height: 220px;
+  }
 
 }
