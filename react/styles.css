@@ -1,0 +1,132 @@
+.formContainer form {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.formContainer {
+  max-width: 500px;
+  padding: 0 20px;
+  width: 100%;
+  z-index: 999;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 100px;
+  border: 2px solid #246FBF;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+/* Esconde o checkbox padrão */
+.checkboxHidden {
+  display: none;
+}
+
+/* Wrapper com texto */
+.formCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: white;
+}
+
+/* Quadradinho personalizado */
+.customCheckbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  min-width: 22px;
+  min-height: 22px;
+}
+
+/* Check (ícone) escondido por padrão */
+.customCheckbox::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  display: none;
+}
+
+/* Quando o checkbox é marcado */
+.checkboxHidden:checked+.customCheckbox {
+  background: #2585C2;
+  border-color: #2585C2;
+}
+
+/* Mostra o check */
+.checkboxHidden:checked+.customCheckbox::after {
+  display: block;
+}
+
+/* Link da política de privacidade */
+.privacyLink {
+  color: #2585C2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.privacyLink:hover {
+  text-decoration: underline;
+}
+
+
+.formButton {
+  width: 100% 505px;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: #2585C2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.successMessage {
+  color: lightgreen;
+  margin-top: 16px;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 0;
+}
+
+/* estado DESABILITADO do botão */
+.formButton:disabled {
+  background: #B4B4B43D;
+  cursor: not-allowed;
+  opacity: 1;
+  color: #969696;
+}
+
+.formButton:disabled:hover {
+  background: #B4B4B43D;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .form {
+    padding: 0 30px;
+  }
+}
